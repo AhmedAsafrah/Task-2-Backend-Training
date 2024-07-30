@@ -1,5 +1,5 @@
 
-import { Request, Response, Express } from 'express';
+import { Request, Response } from 'express';
 import { Customer } from '../db/entites/Customer.js';
 import { AppError } from '../errors/AppErrors.js';
 
@@ -23,7 +23,7 @@ const removeSingleCustomer = async (id : number) => {
 
     const customer = await Customer.findOne({where : {id : id}});
     if(!customer) { 
-        throw new AppError("Customer not found", 404, true);
+        throw new AppError("Customer not found 💀", 404, true);
     }
 
     return customer.remove();
@@ -33,11 +33,10 @@ const editCustomer = async (id : number, payload : Customer) => {
     const customer = await Customer.findOne({where : {id : id}});
 
     if(!customer) {
-        throw new AppError("Customer not found", 404, true)
+        throw new AppError("Customer not found to edit it 😢", 404, true)
     }
 
     let cust = await Customer.findOne({where : {mobilePhone : payload.mobilePhone}});
-
 
     if(cust) {
         throw new AppError("Customer Phone Already Used", 409, true);
@@ -64,7 +63,7 @@ const getSingleCustomer = async (id:number) => {
     const customer = await Customer.findOne({where : {id : id}});
 
     if(!customer) { // will change when we use handlebars
-        throw new AppError("Customer not found", 404, true);
+        throw new AppError("Customer not found to get it 😢", 404, true);
     }
     return customer;
 }
