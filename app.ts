@@ -11,8 +11,6 @@ env.config();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(customErrorHandler)
-app.use(DefaultErrorHandler)
 
 
 app.get("/" , (req: Request, res: Response) => {
@@ -21,6 +19,8 @@ app.get("/" , (req: Request, res: Response) => {
 })
 app.use("/customer", router)
 
+app.use(customErrorHandler)
+app.use(DefaultErrorHandler)
 
 AppDataSource.initialize()
 .then(() => {

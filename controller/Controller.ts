@@ -8,13 +8,11 @@ const createCustomer = async (payload : Customer) => {
 
     const customer = await Customer.findOne({
         where : {
-            name : payload.name,
             mobilePhone : payload.mobilePhone,
-            balance : payload.balance
         }
     });
     if(customer) {
-        throw new AppError("Customer already exists", 409, true);
+        throw new AppError("Customer Phone Already Used", 409, true);
     }
 
     const newCustomer = Customer.create(payload);
@@ -36,6 +34,13 @@ const editCustomer = async (id : number, payload : Customer) => {
 
     if(!customer) {
         throw new AppError("Customer not found", 404, true)
+    }
+
+    let cust = await Customer.findOne({where : {mobilePhone : payload.mobilePhone}});
+
+
+    if(cust) {
+        throw new AppError("Customer Phone Already Used", 409, true);
     }
 
     if(payload.name) {
