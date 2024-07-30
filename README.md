@@ -1,111 +1,48 @@
-# What is Create-express-with-typescript
-  ``Create express with typescript`` is a template That is used to create a quick basic template with a typescript application without any configuration. It's easy to use and does not need to headache to install the multiple dependencies which are required every time when you create a new project structure.
-  You don't need to set up a command and configuration file.
-  
+Customer Management API
+Objective
 
+The goal of this project is to develop a simple Express application using TypeScript, with integration of TypeORM and MySQL. The application implements basic CRUD operations for a Customer entity and handles custom errors for specific scenarios, ensuring robust and user-friendly interaction.
+Features
+Customer Entity
 
-## Installation
-  If you want to create a basic structure in ``express app with typescript`` You just run only one command on our terminal. But make sure ``Node js`` is already installed in your system. 
-  And also npm version is`` 5.0 `` or later
-  
+The application includes a Customer entity with the following fields:
 
- ## 🚀 Usage
+    id: A unique identifier for each customer (primary key).
+    name: The name of the customer.
+    mobilePhone: A unique mobile phone number for each customer.
+    balance: The current balance associated with the customer.
 
- Run the below command on the terminal and install the Express application Boilerplate code with all the configurations. 
+CRUD Operations
 
- ```bash 
- npx create-express-with-typescript app-name
- ```
- 
- ## How to Start Application.
- If you look up the script section on the package.json file you can get four command `` Start `` ``build`` ``dev`` and ``test`` If you want to start the Server you should run
- 
- ```bash
- npm run start
- ```
-npm run start or `` npm start`` command starts your app.
+The application supports the following CRUD operations:
 
-## How to Create a build in Typescript-Express
-if you want to create a build in the Typescript-Express application you just run only one command, This command generates a build in the dist directory which is presented in your current working directory.
-```bash
-  npm run build
- ```
- ## How to start a server in development Mode
- 
- We are already Handel your development repeatability to ``build``  ``start``  and ``restart`` our server every time. You only need to run one command and start building our application when you save the file application is rebuilt and restarted automatically. 
- ```bash
-  npm run dev
- ```
+    Create Customer: Allows adding a new customer to the database.
+    Remove Customer: Enables the removal of an existing customer from the database.
+    Edit Customer: Facilitates the modification of an existing customer's details.
+    Get Customer by ID: Retrieves a specific customer's information using their unique ID.
+    Get All Customers: Fetches a list of all customers in the database.
 
+Custom Error Handling
 
+The application includes custom error handling for various scenarios to ensure smooth and predictable operation. Specific errors handled include:
 
+    Attempting to add a customer with a mobile phone number that is already in use.
+    Trying to remove a customer that does not exist in the database.
+    Attempting to edit the details of a non-existent customer.
+    Trying to retrieve information for a customer that does not exist.
 
-## Configuration Json File
+Usage
 
-   * You can change our ``name`` As per your requirement
-   * You can change `` Version `` as well if you have needed
-   * You can remove the ``bin`` command because it's does't need any more when you application successfully generated.
-   * You can also change author name
+Once set up, the application provides a RESTful API to interact with the Customer entity. You can add, remove, edit, and retrieve customers through the provided endpoints. Testing can be done using tools like Postman to ensure all operations work as expected and handle errors gracefully.
+Error Handling
 
+The application is designed to handle errors effectively, providing meaningful messages and status codes for various error conditions, such as duplicate entries and non-existent records.
+Contributing
 
- ```json
-{
-  "name": "create-express-with-typescript",
-  "version": "1.0.0",
-  "description": "Create Express app is a tamplate which is use to Create a express app templete api",
-  "main": "app.js",
-  "bin": {
-    "create-express": "./bin/createExpress.js"
-  },
-  "private": "true",
-  "scripts": {
-    "start": "npx tsc && nodemon dist/app.js",
-    "build": "npx tsc",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/app.js\" ",
-    "test": "jest"
-  },
-  "keywords": [
-    "create-express-app",
-    "express-app-template"
-  ],
-  "author": "Aadarsh Singh",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^5.1.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.14",
-    "@types/jest": "^29.2.2",
-    "@types/node": "^18.11.9",
-    "concurrently": "^7.5.0",
-    "nodemon": "^2.0.20",
-    "supertest": "^6.3.1",
-    "ts-jest": "^29.0.3",
-    "typescript": "^4.8.4"
-  }
-}
+Contributions to the project are welcome. You can fork the repository and submit pull requests for any enhancements or bug fixes.
+License
 
-```
- Above some dev dependency as well as dependency some of the dependency is required to run the express application Like `` express `` `` @types/express `` `` nodemode`` ``Typescript `` and  `` @types/node `` So you can't remove these dependency.
- And other dependency you can remove as per your requirement.
- 
- 
- 
- 
- 
- 
-## 📝 License
-Copyright © 2019 [Aadarsh Singh](https://github.com/aadarshbabu).<br />
-This project is [MIT](https://github.com/codeefi) licensed.
+This project is licensed under the MIT License.
+Contact
 
-
-## Author
-👤 **Aadarsh Singh**
-
-[Aadarsh Singh](https://codewithsingh.blogspot.com)
-[Github](https://github.com/aadarshbabu)
-[NPM](https://www.npmjs.com/~aadarshsingh)
-
+For any questions or inquiries, please contact Ahmed Asafrah at 211033@ppu.edu.ps.
